@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Installs and configures HAProxy to round-robin traffic between web-01 and web-02
+
+WEB01_NAME="7421-web-01"
+WEB01_IP="35.177.71.140"
+WEB02_NAME="7421-web-02"
+WEB02_IP="13.40.99.155-IP"
+
+# 1. Install HAProxy
+sudo apt-get update -y
+sudo apt-get install -y haproxy
+
+# 2. Let the init script start HAProxy (needed on older Ubuntu versions)
+if [ -f /etc/default/haproxy ]; then
+    sudo sed -i 's/^ENABLED=0/ENABLED=1/' /etc/default/haproxy
+fi
+
+# 3. Add the frontend and backend, only if they aren't already there
+if ! grep -q "backend http_back" /etc/haproxy/haproxy.cfg; then
+    sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null << EOF
+
+frontend http_front
+    bind *:80
+    mode http
+    default_backend http_back
+
+backend http_back
+    mode http
+    balance roundrobin
+    server $WEB01_NAME $WEB01_IP:80 check
+    server $WEB02_NAME $WEB02_IP:80 check
+EOF
+fi
+
+# 4. Check the config, then enable and restart so it runs now and on boot
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+sudo systemctl enable haproxy
+sudo service haproxy restart
