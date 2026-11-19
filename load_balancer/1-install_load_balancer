@@ -3,7 +3,7 @@
 WEB01_NAME="7421-web-01"
 WEB01_IP="35.177.71.140"
 WEB02_NAME="7421-web-02"
-WEB02_IP="WEB02-IP"
+WEB02_IP="13.40.99.155"
 
 # 1. Install HAProxy
 sudo apt-get update -y
