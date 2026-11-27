@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Fix: start Apache, serve "Hello Holberton" at the root and confirm it is running
+# Start Apache, serve Hello Holberton, confirm it is running
 service apache2 start
 echo "Hello Holberton" > /var/www/html/index.html
 service apache2 status
