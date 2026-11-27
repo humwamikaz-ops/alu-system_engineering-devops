@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Fix: start Apache and serve "Hello Holberton" at the root
+service apache2 start
+echo "Hello Holberton" > /var/www/html/index.html
