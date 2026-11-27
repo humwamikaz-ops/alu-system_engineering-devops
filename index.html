@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 | Ceci n'est pas une page</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: radial-gradient(circle at 50% 30%, #2b1055, #0d0221 70%);
+         font-family: Georgia, serif; color: #f5e6c8; text-align: center; padding: 24px; }
+  .wrap { max-width: 560px; }
+  .code { font-size: clamp(5rem, 22vw, 10rem); font-weight: bold; letter-spacing: .05em;
+          color: #d4a017; text-shadow: 0 0 30px rgba(212,160,23,.5); animation: float 4s ease-in-out infinite; }
+  .reel { width: 90px; height: 90px; margin: 0 auto 8px; border: 6px solid #d4a017; border-radius: 50%;
+          position: relative; animation: spin 6s linear infinite; }
+  .reel::before, .reel::after { content: ""; position: absolute; width: 14px; height: 14px;
+          background: #d4a017; border-radius: 50%; }
+  .reel::before { top: 12px; left: 28px; } .reel::after { bottom: 12px; left: 28px; }
+  h1 { font-size: 1.8rem; margin: 12px 0; font-style: italic; }
+  p { opacity: .85; line-height: 1.6; margin-bottom: 28px; }
+  a { display: inline-block; padding: 12px 28px; border: 2px solid #d4a017; color: #d4a017;
+      text-decoration: none; border-radius: 40px; transition: .25s; }
+  a:hover { background: #d4a017; color: #0d0221; }
+  @keyframes float { 50% { transform: translateY(-12px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="reel"></div>
+    <div class="code">404</div>
+    <h1>Ceci n'est pas une page</h1>
+    <p>This scene didn't make the final cut. The page you are looking for was never shot, or got lost on the editing room floor.</p>
+    <a href="/">Back to the main feature</a>
+  </div>
+</body>
+</html>
