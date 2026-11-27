@@ -8,4 +8,4 @@ chmod 644 /etc/nginx/nginx.conf
 chown -R nginx:nginx /var/log/nginx /var/lib/nginx
 touch /run/nginx.pid
 chown nginx:nginx /run/nginx.pid
-runuser -u nginx -- service nginx start
+runuser -u nginx -- service nginx restart

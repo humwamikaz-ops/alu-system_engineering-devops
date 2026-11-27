@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 # Runs whoami under the user passed as argument
-runuser -u "$1" -- whoami
+if command -v sudo > /dev/null; then
+    sudo -u "$1" whoami
+else
+    runuser -u "$1" -- whoami
+fi
