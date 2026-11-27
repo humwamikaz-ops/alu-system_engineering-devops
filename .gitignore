@@ -1,0 +1,12 @@
+# SSH keys
+*.pem
+*_rsa
+*_ed25519
+private_key
+id_*
+
+# test files
+some_page.html
+
+# env / secrets
+.env
